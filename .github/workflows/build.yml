@@ -8,13 +8,11 @@
 name: Pre-merge workflow
 
 on:
-  push:
-    branches:
-      - '[0-9]+.[0-9]+.z'
-      - '[0-9]+.[0-9]+.0'
   pull_request:
     branches:
       - master
+      - '[0-9]+.[0-9]+.z'
+      - '[0-9]+.[0-9]+.0'
 
 permissions:
   contents: read
