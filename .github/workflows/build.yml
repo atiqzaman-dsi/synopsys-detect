@@ -36,4 +36,4 @@ jobs:
         run: |
           PR_NUMBER="${{github.event.number}}-SNAPSHOT"
           VERSION="${PR_NUMBER}-SNAPSHOT"
-          ./gradlew clean build -Ptags="battery,unit,functional" artifactoryPublish -PartifactVersion=${VERSION}
+          ./gradlew clean build -Ptags="battery,unit,functional" artifactoryPublish -Pversion=${VERSION}

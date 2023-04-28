@@ -20,7 +20,7 @@ buildscript {
 }
 
 group = 'com.synopsys.integration'
-version = '8.8.0-SIGQA3-SNAPSHOT'
+//version = '8.8.0-SIGQA3-SNAPSHOT'
 
 apply plugin: 'com.synopsys.integration.solution'
 apply plugin: 'org.springframework.boot'
@@ -38,10 +38,7 @@ jar {
 }
 
 def createArtifactName() {
-    final def artifactVersion = project.hasProperty('artifactVersion') ?
-            project.getProperty('artifactVersion') :
-            version
-    return "${buildDir}/libs/${project.name}-${artifactVersion}.jar"
+    return "${buildDir}/libs/${project.name}-${version}.jar"
 }
 
 def createBatteryPath() {
