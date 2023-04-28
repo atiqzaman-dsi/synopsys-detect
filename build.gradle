@@ -72,8 +72,6 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             def jarName = createArtifactName()
-            println "===="
-            println jarName
             artifact(jarName)
         }
     }
