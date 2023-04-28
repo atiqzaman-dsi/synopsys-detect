@@ -33,4 +33,8 @@ jobs:
           distribution: 'temurin'
 
       - name: Build and run battery, unit and functional tests
-        run: ./gradlew clean build -Ptags="battery,unit,functional"
+        run: |
+          echo $github.event.number
+          echo $GITHUB_REF
+          echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }'
+          ./gradlew clean build -Ptags="battery,unit,functional"
