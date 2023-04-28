@@ -131,6 +131,9 @@ if (project.tasks.findByName('testBattery')) {
 }
 
 task updateBattery(type: UpdateBatteryTask) {}
+task artifactVersion() {
+    println project.getProperty("artifactVersion")
+}
 
 task runDetect(type: JavaExec) {
     dependsOn build
