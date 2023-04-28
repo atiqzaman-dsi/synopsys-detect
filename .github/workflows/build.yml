@@ -35,5 +35,5 @@ jobs:
       - name: Build and run battery, unit and functional tests
         run: |
           PR_NUMBER="${{github.event.number}}-SNAPSHOT"
-          echo $PR_NUMBER
-          ./gradlew clean build artifactVersion -x test -Ptags="battery,unit,functional" -PartifactVersion=${PR_NUMBER}
+          VERSION="${PR_NUMBER}-SNAPSHOT"
+          ./gradlew clean build -Ptags="battery,unit,functional" artifactoryPublish -PartifactVersion=${VERSION}

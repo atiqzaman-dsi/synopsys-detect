@@ -38,7 +38,10 @@ jar {
 }
 
 def createArtifactName() {
-    return "${buildDir}/libs/${project.name}-${version}.jar"
+    final def artifactVersion = project.hasProperty('artifactVersion') ?
+            project.getProperty('artifactVersion') :
+            version
+    return "${buildDir}/libs/${project.name}-${artifactVersion}.jar"
 }
 
 def createBatteryPath() {
@@ -72,6 +75,8 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             def jarName = createArtifactName()
+            println "===="
+            println jarName
             artifact(jarName)
         }
     }
@@ -131,9 +136,6 @@ if (project.tasks.findByName('testBattery')) {
 }
 
 task updateBattery(type: UpdateBatteryTask) {}
-task artifactVersion() {
-    println project.getProperty("artifactVersion")
-}
 
 task runDetect(type: JavaExec) {
     dependsOn build
@@ -306,4 +308,4 @@ task submitToPlatform1 (type: Exec, dependsOn: [buildPlatform1]){
 }
 
 artifactoryPublish.dependsOn ':documentation:publishDitaSource'
-artifactoryPublish.dependsOn signJar
+//artifactoryPublish.dependsOn signJar
