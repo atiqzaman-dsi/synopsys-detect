@@ -22,7 +22,7 @@ buildscript {
 group = 'com.synopsys.integration'
 //version = '8.9.0-SNAPSHOT'
 
-apply plugin: 'com.synopsys.integration.solution'
+//apply plugin: 'com.synopsys.integration.solution'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
